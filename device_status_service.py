@@ -44,6 +44,10 @@ class DeviceStatusService:
             settings, "REDIS_PASSWORD", None
         )
 
+        # if self.redis_password is "", set it to None
+        if self.redis_password == "":
+            self.redis_password = None
+
         self.redis_mgr = RedisDeviceManager(
             host=self.redis_host,
             port=self.redis_port,
