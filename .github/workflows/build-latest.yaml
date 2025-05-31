@@ -2,7 +2,7 @@ name: "[LATEST] Build Container Image"
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -16,5 +16,5 @@ jobs:
       uses: docker/setup-buildx-action@v3
     - name: Build the Docker image
       run: |
-        docker login registry.heliumdevicemanager.com -u cicd -p ${{ secrets.REGISTRY_PASSWORD }}
-        docker buildx build --push --platform linux/amd64,linux/arm64 . -t registry.heliumdevicemanager.com/device-manager/device-manager-service:latest
+        docker login registry.nodedash.app -u cicd -p ${{ secrets.REGISTRY_PASSWORD }}
+        docker buildx build --push --platform linux/amd64,linux/arm64 . -t registry.nodedash.app/nodedash/service:latest
